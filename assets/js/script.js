@@ -2,6 +2,7 @@ const circle = document.querySelector("circle");
 const computedStyle = window.getComputedStyle(circle);
 
 var swiper = new Swiper(".mySwiper", {
+  simulateTouch: false,
   on: {
     slideChange: function () {
       $(".swiper-slide").off("mousemove mouseenter mouseleave");
