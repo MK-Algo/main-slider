@@ -100,7 +100,7 @@ var swiper = new Swiper(".mySwiper", {
     slideShadows: true,
   },
   autoplay: {
-    delay: 4000,
+    delay: 4100,
     disableOnInteraction: false,
   },
   navigation: {
