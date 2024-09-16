@@ -1,6 +1,10 @@
 const circle = document.querySelector("circle");
 const computedStyle = window.getComputedStyle(circle);
 
+function getResponsiveStretch() {
+  return window.innerWidth * 0.09; // 10vw, adjust the multiplier as needed
+}
+
 var swiper = new Swiper(".mySwiper", {
   simulateTouch: false,
   on: {
@@ -88,14 +92,18 @@ var swiper = new Swiper(".mySwiper", {
         }
       });
     },
+    resize: function () {
+      swiper.params.coverflowEffect.stretch = -getResponsiveStretch();
+      swiper.update();
+    },
   },
   effect: "coverflow",
+  slidesPerView: 3,
   grabCursor: true,
   centeredSlides: true,
-  slidesPerView: "3",
   coverflowEffect: {
     rotate: 90,
-    stretch: -180,
+    stretch: -getResponsiveStretch(),
     depth: 0,
     modifier: 1,
     slideShadows: true,
@@ -113,6 +121,21 @@ var swiper = new Swiper(".mySwiper", {
   },
   speed: 1000,
   loop: true,
+  breakpoints: {
+    320: {
+      effect: "slide",
+      slidesPerView: "1.1",
+      spaceBetween: 30,
+      centeredSlides: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    },
+    640: {
+      pagination: false,
+    },
+  },
 });
 
 const circleDiv = document.querySelector(".cursor");
