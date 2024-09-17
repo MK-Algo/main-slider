@@ -71,6 +71,11 @@ body {
   object-fit: cover;
 }
 
+.swiper-slide video {
+  width: 100%;
+  object-fit: cover;
+}
+
 .swiper-3d .swiper-cube-shadow,
 .swiper-3d .swiper-slide {
   height: auto;
