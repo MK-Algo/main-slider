@@ -5,15 +5,17 @@ function getResponsiveStretch() {
   return window.innerWidth * 0.09; // 10vw, adjust the multiplier as needed
 }
 
-function getCloserStretch() {
-  return window.innerWidth * 0.08; // 10vw, adjust the multiplier as needed
-}
-
 var swiper = new Swiper(".mySwiper", {
   simulateTouch: false,
   on: {
     slideChange: function () {
       $(".swiper-slide").off("mousemove mouseenter mouseleave");
+      $(".swiper-button-prev").css("opacity", "0");
+      $(".swiper-button-next").css("opacity", "0");
+      $(".swiper-slide-prev").removeClass("prevSlideMoveLeft");
+      $(".swiper-slide-prev").removeClass("prevSlideMoveRight");
+      $(".swiper-slide-next").removeClass("nextSlideMoveLeft");
+      $(".swiper-slide-next").removeClass("nextSlideMoveRight");
 
       $(".swiper-slide").on("mousemove", function (event) {
         var mouseX = event.pageX;

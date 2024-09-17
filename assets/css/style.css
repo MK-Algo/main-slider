@@ -251,7 +251,7 @@ circle {
 @keyframes prevMoveLeftAnim {
   0% {
     position: relative;
-    right: -30px;
+    right: -20px;
   }
 
   100% {
@@ -272,7 +272,7 @@ circle {
 
   100% {
     position: relative;
-    right: -30px;
+    right: -20px;
   }
 }
 
@@ -288,7 +288,7 @@ circle {
 
   100% {
     position: relative;
-    left: -30px;
+    left: -20px;
   }
 }
 
@@ -299,7 +299,7 @@ circle {
 @keyframes nextMoveRightAnim {
   0% {
     position: relative;
-    left: -30px;
+    left: -20px;
   }
 
   100% {
