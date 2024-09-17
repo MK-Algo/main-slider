@@ -243,3 +243,67 @@ circle {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 }
+
+.prevSlideMoveLeft {
+  animation: prevMoveLeftAnim 0.3s ease-in-out forwards;
+}
+
+@keyframes prevMoveLeftAnim {
+  0% {
+    position: relative;
+    right: -30px;
+  }
+
+  100% {
+    position: relative;
+    right: 0;
+  }
+}
+
+.prevSlideMoveRight {
+  animation: prevSlideMoveRight 0.3s ease-in-out forwards;
+}
+
+@keyframes prevSlideMoveRight {
+  0% {
+    position: relative;
+    right: 0;
+  }
+
+  100% {
+    position: relative;
+    right: -30px;
+  }
+}
+
+.nextSlideMoveLeft {
+  animation: nextMoveLeftAnim 0.3s ease forwards;
+}
+
+@keyframes nextMoveLeftAnim {
+  0% {
+    position: relative;
+    left: 0;
+  }
+
+  100% {
+    position: relative;
+    left: -30px;
+  }
+}
+
+.nextSlideMoveRight {
+  animation: nextMoveRightAnim 0.3s ease forwards;
+}
+
+@keyframes nextMoveRightAnim {
+  0% {
+    position: relative;
+    left: -30px;
+  }
+
+  100% {
+    position: relative;
+    left: 0;
+  }
+}

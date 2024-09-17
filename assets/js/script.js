@@ -5,6 +5,10 @@ function getResponsiveStretch() {
   return window.innerWidth * 0.09; // 10vw, adjust the multiplier as needed
 }
 
+function getCloserStretch() {
+  return window.innerWidth * 0.08; // 10vw, adjust the multiplier as needed
+}
+
 var swiper = new Swiper(".mySwiper", {
   simulateTouch: false,
   on: {
@@ -33,20 +37,38 @@ var swiper = new Swiper(".mySwiper", {
       $(".swiper-slide").on("mouseenter", function () {
         if ($(this).hasClass("swiper-slide-prev")) {
           $(".swiper-button-prev").css("opacity", "1");
+          $(".swiper-slide-prev").addClass("prevSlideMoveRight");
+          $(".swiper-slide-prev").removeClass("prevSlideMoveLeft");
+        } else if ($(this).hasClass("swiper-slide-active")) {
+          $(".swiper-button-prev").css("opacity", "0");
+          $(".swiper-button-next").css("opacity", "0");
         } else if ($(this).hasClass("swiper-slide-next")) {
           $(".swiper-button-next").css("opacity", "1");
+          $(".swiper-slide-next").addClass("nextSlideMoveLeft");
+          $(".swiper-slide-next").removeClass("nextSlideMoveRight");
         }
       });
 
       $(".swiper-slide").on("mouseleave", function () {
         if ($(this).hasClass("swiper-slide-prev")) {
           $(".swiper-button-prev").css("opacity", "0");
+          $(".swiper-slide-prev").addClass("prevSlideMoveLeft");
+          $(".swiper-slide-prev").removeClass("prevSlideMoveRight");
         } else if ($(this).hasClass("swiper-slide-next")) {
           $(".swiper-button-next").css("opacity", "0");
+          $(".swiper-slide-next").removeClass("nextSlideMoveLeft");
+          $(".swiper-slide-next").addClass("nextSlideMoveRight");
         }
       });
 
       $(".swiper-slide").on("click", function () {
+        $(".swiper-button-prev").css("opacity", "0");
+        $(".swiper-button-next").css("opacity", "0");
+        $(".swiper-slide-prev").removeClass("prevSlideMoveLeft");
+        $(".swiper-slide-prev").removeClass("prevSlideMoveRight");
+        $(".swiper-slide-next").removeClass("nextSlideMoveLeft");
+        $(".swiper-slide-next").removeClass("nextSlideMoveRight");
+
         if ($(this).hasClass("swiper-slide-prev")) {
           swiper.slidePrev();
           $(".swiper-button-prev").addClass("animate");
